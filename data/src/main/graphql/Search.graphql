@@ -1,0 +1,15 @@
+ query search($searchTerm: String) {
+
+   search(searchTerm: $searchTerm) {
+     stations {
+       name
+       location {
+         latitude
+         longitude
+       }
+       picture {
+         url
+       }
+     }
+   }
+  }
