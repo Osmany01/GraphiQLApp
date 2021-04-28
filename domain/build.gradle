@@ -20,4 +20,10 @@ dependencies {
     kapt 'com.google.dagger:dagger-compiler:2.27'
     implementation 'com.google.dagger:dagger-android:2.27'
     kapt 'com.google.dagger:dagger-android-processor:2.27'
+
+    //test
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.1'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'com.nhaarman:mockito-kotlin:1.6.0'
+    testImplementation 'org.mockito:mockito-inline:2.7.13'
 }
