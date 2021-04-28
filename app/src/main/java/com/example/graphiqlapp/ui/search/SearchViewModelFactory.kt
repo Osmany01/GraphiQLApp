@@ -4,10 +4,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.domain.usecase.stations.GetStationsUseCase
 
-class XinRepoViewModelFactory(private val getStationsUseCase: GetStationsUseCase): ViewModelProvider.Factory {
+class SearchViewModelFactory(private val getStationsUseCase: GetStationsUseCase): ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(SearchActivityViewModel::class.java)) {
-            return SearchActivityViewModel(
+        if (modelClass.isAssignableFrom(SearchViewModel::class.java)) {
+            return SearchViewModel(
                 getStationsUseCase
             ) as T
         }

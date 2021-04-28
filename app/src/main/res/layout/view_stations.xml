@@ -9,7 +9,7 @@
     android:foreground="?attr/selectableItemBackground">
 
     <ImageView
-        android:id="@+id/owner_image"
+        android:id="@+id/station_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
@@ -28,16 +28,30 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
         tools:text="@tools:sample/lorem" />
 
+
     <TextView
         android:textColor="@color/material_on_background_emphasis_high_type"
-        android:id="@+id/description"
+        android:id="@+id/lat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start"
         android:padding="8dp"
-        android:lines="3"
-        android:minLines="3"
+        android:lines="1"
+        android:minLines="1"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
         tools:text="@tools:sample/lorem" />
+
+    <TextView
+        android:textColor="@color/material_on_background_emphasis_high_type"
+        android:id="@+id/lon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:padding="8dp"
+        android:lines="1"
+        android:minLines="1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+        tools:text="@tools:sample/lorem" />
+
 
 </LinearLayout>

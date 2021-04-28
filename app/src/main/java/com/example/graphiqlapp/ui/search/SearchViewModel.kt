@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class SearchActivityViewModel @Inject constructor(private val getStationsUseCase: GetStationsUseCase) :
+class SearchViewModel @Inject constructor(private val getStationsUseCase: GetStationsUseCase) :
     ViewModel() {
 
     private val _spinner = MutableStateFlow(true)
@@ -32,7 +32,9 @@ class SearchActivityViewModel @Inject constructor(private val getStationsUseCase
         _spinner.value  = true
 
         getStationsUseCase.search(city).onEach {
-            _searchUiState.value = SearchUiState.Success(it)
+            if (it.isNotEmpty()) _searchUiState.value = SearchUiState.Success(it)
+            else _searchUiState.value = SearchUiState.Empty
+
         }.catch {
             _searchUiState.value = SearchUiState.Error(it.message ?: GENERIC_ERROR_MESSAGE)
         }.collect()
@@ -43,6 +45,6 @@ class SearchActivityViewModel @Inject constructor(private val getStationsUseCase
     sealed class SearchUiState {
         data class Error(val message: String) : SearchUiState()
         object Empty : SearchUiState()
-        data class Success(val listRepos: List<Station>) : SearchUiState()
+        data class Success(val listStations: List<Station>) : SearchUiState()
     }
 }

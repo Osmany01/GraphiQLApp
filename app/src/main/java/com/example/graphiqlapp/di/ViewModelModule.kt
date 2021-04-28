@@ -1,8 +1,8 @@
-package com.test_android_osmany01.di
+package com.example.graphiqlapp.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.test_android_osmany01.ui.xinrepo.XinReposViewModel
+import com.example.graphiqlapp.ui.search.SearchViewModel
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module
@@ -14,8 +14,8 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(XinReposViewModel::class)
-    abstract fun bindXinReposViewModel(xinReposViewModel: XinReposViewModel): ViewModel
+    @ViewModelKey(SearchViewModel::class)
+    abstract fun bindXinReposViewModel(xinReposViewModel: SearchViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

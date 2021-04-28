@@ -1,4 +1,4 @@
-package com.test_android_osmany01.di
+package com.example.graphiqlapp.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

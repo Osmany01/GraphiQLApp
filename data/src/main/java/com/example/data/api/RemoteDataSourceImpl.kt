@@ -14,12 +14,12 @@ class RemoteDataSourceImpl(private val apolloClient: ApolloClient) : RemoteDataS
     override suspend fun search(city: String): Flow<List<Station>> {
 
 
-        val response = apolloClient.query(SearchQuery.builder().searchTerm(city).build()).await()
+        val response = apolloClient.query(SearchQuery.builder().searchTerm(if(city.isBlank()) "Flughafen" else city).build()).await()
 
         val responseStation = response.data?.search()?.stations()
         val parseListStation = mutableListOf<ApiStation>()
         responseStation?.forEach {
-            parseListStation.add(ApiStation(it.name(), it.location()!!.latitude(), it.location()!!.longitude(), it.picture()!!.url()))
+            parseListStation.add(ApiStation(it.name(), it.location()!!.latitude(), it.location()!!.longitude(), it?.picture()?.url()?:""))
         }
 
         return flowOf(parseListStation.map { it.toDomain() })
