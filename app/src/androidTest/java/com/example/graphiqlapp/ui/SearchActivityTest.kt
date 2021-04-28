@@ -42,7 +42,7 @@ class SearchActivityTest {
     }
 
     @Test
-    fun when_TheActivityStart_SearchBar_shoulempty() {
+    fun when_clickOn_ButtonSearch_progressBar_should_be_displayed() {
 
         clickOn(R.id.button_search)
         assertDisplayed(R.id.progress)
